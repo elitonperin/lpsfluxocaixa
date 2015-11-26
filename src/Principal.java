@@ -134,6 +134,15 @@ public class Principal
 
 	private static void cadastrarCentrosDeCustos() {
 		// TODO Auto-generated method stub
+		NegocioDAO dao = new NegocioDAO();
+		
+		CentroCustoG5 centroCustoG5 = new CentroCustoG5();
+		System.out.println("Digite o nome do novo Centro de Custo:");
+		centroCustoG5.setNome(scanner.nextLine());
+		System.out.println("Digite a descrição do novo Centro de Custo:");
+		centroCustoG5.setDescricao(scanner.nextLine());
+		dao.salvarGenerico(centroCustoG5);
+		System.out.println("Salvo com sucesso");
 		
 	}
 
@@ -253,10 +262,5 @@ public class Principal
 		negocio.inserirDespesas(despesa, estado);
 	}
 	
-	static void exemploCentrosDeCusto(){
-		NegocioDAO dao = new NegocioDAO();
-		
-		CentroCustoG5 centroCustoG5 = new CentroCustoG5();
-	}
 
 }
