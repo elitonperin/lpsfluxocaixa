@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Configurações de Conexão com o Banco de Dados -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/fluxocaixa</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		
+		
+		<!-- Pool de Conexões - para DESENVOLVIMENTO -->
+		<property name="connection.pool_size">1</property>
+		
+		
+		
+		<!-- Pool de Conexões - para PRODUCAO <property name="c3p0.min_size">5</property> 
+			<property name="c3p0.max_size">20</property> <property name="c3p0.timeout">1800</property> 
+			<property name="c3p0.max_statements">50</property> SQL dialect -->
+			
+			
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		
+		
+		<!-- Gerenciamento do Contexto das Sessões -->
+		<property name="current_session_context_class">thread</property>
+		
+		
+		<!-- Cache de Segundo Nível -->
+		<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+		
+		
+		<!-- Mostra as SQLs Geradas -->
+		<property name="show_sql">true</property>
+		
+		
+		<!-- Cria as tabelas do banco de dados -->
+		<!--  
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		
+		<property name="hibernate.show_sql">true</property>
+		<mapping class="br.com.fluxocaixa.model.Categoria" />
+		<mapping class="br.com.fluxocaixa.model.CategoriaCredito" />
+		<mapping class="br.com.fluxocaixa.model.CategoriaDebito" />
+		<mapping class="br.com.fluxocaixa.model.Status" />
+		<mapping class="br.com.fluxocaixa.model.FluxoCaixa" />
+		<mapping class="br.com.fluxocaixa.model.Realizado" />
+		<mapping class="br.com.fluxocaixa.model.NaoRealizado" />
+		<mapping class="br.com.fluxocaixa.model.Atrasado" />
+		<mapping class="br.com.fluxocaixa.model.CentroCusto" />
+		<mapping class="br.com.fluxocaixa.model.Conta" />
+		<mapping class="br.com.fluxocaixa.model.ContaCorrente" />
+		<mapping class="br.com.fluxocaixa.model.CartaoCredito" />
+		<mapping class="br.com.fluxocaixa.model.Caixa" />
+		<mapping class="br.com.fluxocaixa.model.Carteira" />
+		<mapping class="br.com.fluxocaixa.model.Despesa" />
+		<mapping class="br.com.fluxocaixa.model.Transferencia" />
+		<mapping class="br.com.fluxocaixa.model.Receita" />
+		<mapping class="br.com.fluxocaixa.model.UnidadeOrganizacional" />
+		<mapping class="br.com.fluxocaixa.model.Funcionario" />
+	</session-factory>
+</hibernate-configuration>
