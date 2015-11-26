@@ -26,18 +26,112 @@ public class Principal
 		scanner = new Scanner(System.in);
 		
 		System.out.println("Oi, bem vindo ao sistema do G5");
-		System.out.println("Escolha uma opção abaixo:");
 		
-		switch(painelDoSistema())
-		{
-		case 1:
-			cadastrarCentrosDeCustos();
-			break;
-		}
+		opcoesSistema();
 		
 	}
 	
 	
+	private static void opcoesSistema() {
+		// TODO Auto-generated method stub
+		switch(painelDoSistema())
+		{
+		case 0:
+			
+			break;
+		case 1:
+			cadastrarCentrosDeCustos();
+			break;
+		case 2:
+			cadastrarFornecedores();
+			break;
+		case 3:
+			cadastrarCliente();
+			break;
+		case 4:
+			cadastrarUnidadeOrganizacional();
+			break;
+		case 5:
+			cadastrarCarteiraContaBancaria();
+			break;
+		case 6:
+			cadastrarCategoriasDeDespesa();
+			break;
+		case 7:
+			cadastrarCategoriaDeReceita();
+			break;
+		case 8:
+			cadastrarUsuario();
+			break;
+		case 9:
+			cadastrarDespesa();
+			break;
+		case 10:
+			cadastrarReceita();
+			break;
+			
+		default:
+			System.out.println("Opção inválida.");
+			opcoesSistema();
+			break;
+		}
+	}
+
+
+	private static void cadastrarReceita() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void cadastrarDespesa() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void cadastrarUsuario() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void cadastrarCategoriaDeReceita() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void cadastrarCarteiraContaBancaria() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void cadastrarCategoriasDeDespesa() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void cadastrarUnidadeOrganizacional() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void cadastrarCliente() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void cadastrarFornecedores() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	private static void cadastrarCentrosDeCustos() {
 		// TODO Auto-generated method stub
 		
@@ -47,16 +141,20 @@ public class Principal
 	private static int painelDoSistema() 
 	{
 		// TODO Auto-generated method stub
-		System.out.println("01 - Cadastrar Centros de Custos");
+
+		System.out.println("Escolha uma opção abaixo:");
+		
+		System.out.println("01 - Cadastrar Centro de Custo");
 		System.out.println("02 - Cadastrar Fornecedores");
 		System.out.println("03 - Cadastrar Cliente");
-		System.out.println("04 - Cadastrar Unidades Organizacionais");
-		System.out.println("05 - Cadastrar Carteiras/Contas Bancarias");
-		System.out.println("06 - Cadastrar Categorias de Despesas");
-		System.out.println("07 - Cadastrar Categorias de Receitas");
+		System.out.println("04 - Cadastrar Unidade Organizacional");
+		System.out.println("05 - Cadastrar Carteira/Conta Bancaria");
+		System.out.println("06 - Cadastrar Categorias de Despesa");
+		System.out.println("07 - Cadastrar Categorias de Receita");
 		System.out.println("08 - Cadastrar Usuário");
 		System.out.println("09 - Cadastrar Despesa");
 		System.out.println("10 - Cadastrar Receita");
+		System.out.println("0 - Sair");
 		
 		String s = scanner.nextLine();
 		int i = Integer.parseInt(s);
