@@ -43,33 +43,34 @@
 		
 		
 		<property name="hibernate.show_sql">true</property>
-		<!-- Categoria -->
+		
 		<mapping class="br.com.fluxocaixa.model.Categoria" />
+		<!-- Categoria -->
 		<mapping class="br.com.fluxocaixa.model.CategoriaCredito" />
 		<mapping class="br.com.fluxocaixa.model.CategoriaDebito" />
 		<!-- Categoria -->
 		
-		<!-- Fluxo de Caixa -->
 		<mapping class="br.com.fluxocaixa.model.FluxoCaixa" />
+		<!-- Fluxo de Caixa -->
 		<mapping class="br.com.fluxocaixa.model.Despesa" />
 		<mapping class="br.com.fluxocaixa.model.Receita" />
 		<mapping class="br.com.fluxocaixa.model.Transferencia" />
 		<!-- Fluxo de Caixa -->
 		
-		<!-- Status -->
 		<mapping class="br.com.fluxocaixa.model.Status" />
+		<!-- Status -->
 		<mapping class="br.com.fluxocaixa.model.Realizado" />
-		<!-- Nao Realizado -->
 		<mapping class="br.com.fluxocaixa.model.NaoRealizado" />
+		<!-- Nao Realizado -->
 		<mapping class="br.com.fluxocaixa.model.Atrasado" />
 		<!-- Nao Realizado -->
 		<!-- Status -->
 		
-		<!-- Centro de Custo -->
 		<mapping class="br.com.fluxocaixa.model.CentroCusto" />
+		<!-- Centro de Custo -->
 		<mapping class="br.com.fluxocaixa.model.UnidadeOrganizacional" />
-		<!-- Conta -->
 		<mapping class="br.com.fluxocaixa.model.Conta" />
+		<!-- Conta -->
 		<mapping class="br.com.fluxocaixa.model.ContaCorrente" />
 		<mapping class="br.com.fluxocaixa.model.CartaoCredito" />
 		<mapping class="br.com.fluxocaixa.model.Caixa" />

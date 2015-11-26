@@ -134,16 +134,97 @@ public class Principal
 
 	private static void cadastrarCentrosDeCustos() {
 		// TODO Auto-generated method stub
-		NegocioDAO dao = new NegocioDAO();
 		
-		CentroCustoG5 centroCustoG5 = new CentroCustoG5();
-		System.out.println("Digite o nome do novo Centro de Custo:");
-		centroCustoG5.setNome(scanner.nextLine());
-		System.out.println("Digite a descrição do novo Centro de Custo:");
-		centroCustoG5.setDescricao(scanner.nextLine());
-		dao.salvarGenerico(centroCustoG5);
-		System.out.println("Salvo com sucesso");
+		System.out.println("Selecione o tipo de Centro de Custo para ser inserido:");
+		System.out.println("");
+		System.out.println("01-Conta");
+		System.out.println("02-Unidade Organizacional");
+		System.out.println("03-Cliente");
+		System.out.println("04-Fornecedor");
+		System.out.println("05-Voltar");
+		System.out.println("0-Sair");
 		
+		String s = scanner.nextLine();
+		int i = Integer.parseInt(s);
+		
+		switch(i)
+		{
+		case 0:
+			break;
+		case 1: //Conta
+			cadastrarConta();
+			break;
+		case 2: //Unidade Organizacional
+			cadastrarUnidadeOrganizacional();
+			break;
+		case 3: //Cliente
+			cadastrarCliente();
+		case 4:
+			cadastrarFornecedores();
+		case 5:
+			opcoesSistema();
+			break;
+		default:
+			System.out.println("Escolha uma opção válida.");
+			cadastrarCentrosDeCustos();
+			break;
+		}
+	}
+
+
+	private static void cadastrarConta() {
+		// TODO Auto-generated method stub
+		System.out.println("Selecione o tipo de Conta que deseja Cadastrar: ");
+		System.out.println("");
+		System.out.println("01-Conta Corrente");
+		System.out.println("02-Caixa");
+		System.out.println("03-Cartão de Crédito");
+		System.out.println("04-Carteira");
+		System.out.println("05-Voltar");
+		System.out.println("0-Sair");
+		
+		String s = scanner.nextLine();
+		int i = Integer.parseInt(s);
+		
+		switch(i)
+		{
+		case 0:
+			break;
+		case 1: //Conta Corrente
+			System.out.println("Forneça os dados para cadastro:");
+			System.out.println("Banco:");
+			String banco = scanner.nextLine();
+			System.out.println("Descrição da Conta");
+			String descricao = scanner.nextLine();
+			System.out.println("Nome");
+			String nome = scanner.nextLine();
+			System.out.println("Número");
+			String numero = scanner.nextLine();
+
+			ContaCorrente contaCorrente = new ContaCorrente();
+			contaCorrente.setBanco(banco);
+			contaCorrente.setDescricao(descricao);
+			contaCorrente.setNome(nome);
+			contaCorrente.setNumero(numero);
+			
+			NegocioDAO dao = new NegocioDAO();
+			dao.salvarGenerico(contaCorrente);
+						
+			break;
+		case 2: //Caixa
+			break;
+		case 3: //Cartão de Crédito
+			break;
+		case 4: //Carteira
+			break;
+		case 5:
+			cadastrarCentrosDeCustos();
+			break;
+		default:
+			System.out.println("Escolha uma opção válida.\n");
+			cadastrarConta();
+			break;
+		}
 	}
 
 

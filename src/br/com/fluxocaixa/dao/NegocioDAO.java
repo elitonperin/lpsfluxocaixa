@@ -189,5 +189,9 @@ public class NegocioDAO {
 	public Object getById(Class Object, Integer id){
 		return session.get(Object, id);
 	}
+	
+	public void close(){
+		session.close();
+	}
     
 }
