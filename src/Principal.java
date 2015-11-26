@@ -28,16 +28,23 @@ public class Principal
 		System.out.println("Oi, bem vindo ao sistema do G5");
 		System.out.println("Escolha uma opção abaixo:");
 		
-		switch(panelSystem())
+		switch(painelDoSistema())
 		{
 		case 1:
+			cadastrarCentrosDeCustos();
 			break;
 		}
 		
 	}
 	
 	
-	private static int panelSystem() 
+	private static void cadastrarCentrosDeCustos() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static int painelDoSistema() 
 	{
 		// TODO Auto-generated method stub
 		System.out.println("01 - Cadastrar Centros de Custos");
