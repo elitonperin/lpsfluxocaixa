@@ -117,7 +117,7 @@ public class Principal
 
 	private static void cadastrarCarteiraContaBancaria() throws ParseException {
 
-		
+		Carteira carteira = new Carteira();
 		
 		System.out.println("Tipo de conta:");
 		System.out.println("1 - cartão de crédito");
@@ -126,33 +126,48 @@ public class Principal
 		System.out.println("4 - carteira");
 		String tipoConta = scanner.nextLine();
 		
+		carteira.setTipoConta(tipoConta);
+		
 		System.out.println("Entre com o banco: ");
 		String banco = scanner.nextLine();
+		
+		carteira.setBanco(banco);
 		
 		System.out.println("Entre com o número da conta");
 		String numeroDaConta = scanner.nextLine();
 		
+		carteira.setNumeroDaConta(numeroDaConta);
+		
 		System.out.println("Entre com a agência:");
 		String nomeDaAgencia = scanner.nextLine();
+		
+		carteira.setNomeDaAgencia(nomeDaAgencia);
 		
 		System.out.println("Entre com o gerente:");
 		String gerente = scanner.nextLine();
 		
+		carteira.setGerente(gerente);
+		
 		System.out.println("Entre com o telefone:");
 		String telefone = scanner.nextLine();
+		
+		carteira.setTelefone(telefone);
 		
 		System.out.println("Entre com o saldo inicial:");
 		String saldoInicial = scanner.nextLine();
 		float saldoInicialF = Float.parseFloat(saldoInicial);
 		
-		System.out.println("Entre com a dataDeVencimento:");
+		carteira.setSaldo(saldoInicialF);
 		
+		System.out.println("Entre com a dataDeVencimento:");
 		String dataDeVencimentoString = scanner.nextLine();
 		DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
-		
-		
 		Date dataDeVencimentoDate = dateFormat.parse(dataDeVencimentoString);
 		
+		carteira.setDataDeVencimento(dataDeVencimentoDate);
+		
+		NegocioDAO dao = new NegocioDAO();	
+		dao.salvarGenerico(carteira);
 	}
 
 
