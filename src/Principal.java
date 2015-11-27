@@ -145,6 +145,7 @@ public class Principal
 		switch(i)
 		{
 		case 0:
+			System.exit(0);
 			break;
 		case 1:
 			System.out.println("Forneça os dados para cadastro:");
@@ -203,6 +204,12 @@ public class Principal
 				opcoesSistema();
 			else if(idMetodo == idMetodoCadastrarCentrosDeCustos)
 				cadastrarCentrosDeCustos();
+			else 
+				System.exit(0);
+			break;
+		default:
+			System.out.println("Insira uma opção válida.");
+			cadastrarFornecedores(idMetodo);
 			break;
 		}
 		
