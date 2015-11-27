@@ -10,7 +10,9 @@ import br.com.fluxocaixa.model.CategoriaCredito;
 import br.com.fluxocaixa.model.CategoriaDebito;
 import br.com.fluxocaixa.model.CentroCusto;
 import br.com.fluxocaixa.model.ClienteFisico;
+import br.com.fluxocaixa.model.ClienteFisicoEmail;
 import br.com.fluxocaixa.model.ClienteJuridico;
+import br.com.fluxocaixa.model.ClienteJuridicoEmail;
 import br.com.fluxocaixa.model.ContaCorrente;
 import br.com.fluxocaixa.model.Despesa;
 import br.com.fluxocaixa.model.FluxoCaixa;
@@ -145,7 +147,7 @@ public class Principal
 			System.exit(0);
 			break;
 		case 1:
-			ClienteJuridico clienteJuridico = new ClienteJuridico();
+			ClienteJuridicoEmail clienteJuridico = new ClienteJuridicoEmail();
 			System.out.println("Nome:");
 			clienteJuridico.setNome(scanner.nextLine());
 			System.out.println("CNPJ:");
@@ -154,6 +156,8 @@ public class Principal
 			clienteJuridico.setDescricao(scanner.nextLine());
 			System.out.println("Telefone:");
 			clienteJuridico.setTelefone(scanner.nextLine());
+			System.out.println("Email:");
+			clienteJuridico.setEmail(scanner.nextLine());
 			System.out.println("Cidade:");
 			clienteJuridico.setCidade(scanner.nextLine());
 			System.out.println("Bairro:");
@@ -171,7 +175,7 @@ public class Principal
 			break;
 		case 2:
 			System.out.println("Forneça os dados para cadastro:");
-			ClienteFisico clienteFisico = new ClienteFisico();
+			ClienteFisicoEmail clienteFisico = new ClienteFisicoEmail();
 			System.out.println("Nome:");
 			clienteFisico.setNome(scanner.nextLine());
 			System.out.println("CPF:");
@@ -180,6 +184,8 @@ public class Principal
 			clienteFisico.setDescricao(scanner.nextLine());
 			System.out.println("Telefone:");
 			clienteFisico.setTelefone(scanner.nextLine());
+			System.out.println("Email:");
+			clienteFisico.setEmail(scanner.nextLine());
 			System.out.println("Cidade:");
 			clienteFisico.setCidade(scanner.nextLine());
 			System.out.println("Bairro:");

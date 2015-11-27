@@ -77,7 +77,9 @@
 		<mapping class="br.com.fluxocaixa.model.Cliente" />
 		<!--  Cliente -->
 		<mapping class="br.com.fluxocaixa.model.ClienteFisico" />
+		<mapping class="br.com.fluxocaixa.model.ClienteFisicoEmail" />
 		<mapping class="br.com.fluxocaixa.model.ClienteJuridico" />
+		<mapping class="br.com.fluxocaixa.model.ClienteJuridicoEmail" />
 		<!--  Cliente -->
 		<mapping class="br.com.fluxocaixa.model.Conta" />
 		<!-- Conta -->
