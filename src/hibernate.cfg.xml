@@ -70,8 +70,10 @@
 		<!-- Centro de Custo -->
 		<mapping class="br.com.fluxocaixa.model.UnidadeOrganizacional" />
 		<mapping class="br.com.fluxocaixa.model.Fornecedor" />
+		<!-- Fornecedor -->
 		<mapping class="br.com.fluxocaixa.model.FornecedorFisico" />
 		<mapping class="br.com.fluxocaixa.model.FornecedorJuridico" />
+		<!-- Fornecedor -->
 		<mapping class="br.com.fluxocaixa.model.Conta" />
 		<!-- Conta -->
 		<mapping class="br.com.fluxocaixa.model.ContaCorrente" />
