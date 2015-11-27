@@ -45,34 +45,35 @@ public class Principal
 		case 0:
 			
 			break;
-		case 1:
+		/*case 1:
 			cadastrarCentrosDeCustos();
 			break;
-		case 2:
+		*/
+		case 1:
 			cadastrarFornecedores(idMetodoOpcoesSistema);
 			break;
-		case 3:
+		case 2:
 			cadastrarCliente();
 			break;
-		case 4:
+		case 3:
 			cadastrarUnidadeOrganizacional();
 			break;
-		case 5:
+		case 4:
 			cadastrarCarteiraContaBancaria();
 			break;
-		case 6:
+		case 5:
 			cadastrarCategoriasDeDespesa();
 			break;
-		case 7:
+		case 6:
 			cadastrarCategoriaDeReceita();
 			break;
-		case 8:
+		case 7:
 			cadastrarUsuario();
 			break;
-		case 9:
+		case 8:
 			cadastrarDespesa();
 			break;
-		case 10:
+		case 9:
 			cadastrarReceita();
 			break;
 			
@@ -275,8 +276,8 @@ public class Principal
 		case 3:
 			if(idMetodo == idMetodoOpcoesSistema)
 				opcoesSistema();
-			else if(idMetodo == idMetodoCadastrarCentrosDeCustos)
-				cadastrarCentrosDeCustos();
+			/*else if(idMetodo == idMetodoCadastrarCentrosDeCustos)
+				cadastrarCentrosDeCustos();*/
 			else 
 				System.exit(0);
 			break;
@@ -289,6 +290,7 @@ public class Principal
 	}
 
 
+	/*
 	private static void cadastrarCentrosDeCustos() {
 		// TODO Auto-generated method stub
 		
@@ -329,7 +331,7 @@ public class Principal
 			break;
 		}
 	}
-
+	*/
 
 	private static void cadastrarConta() {
 		// TODO Auto-generated method stub
@@ -376,9 +378,9 @@ public class Principal
 			break;
 		case 4: //Carteira
 			break;
-		case 5:
+		/*case 5:
 			cadastrarCentrosDeCustos();
-			break;
+			break;*/
 		default:
 			System.out.println("Escolha uma opção válida.\n");
 			cadastrarConta();
@@ -393,16 +395,17 @@ public class Principal
 
 		System.out.println("Escolha uma opção abaixo:");
 		
-		System.out.println("01 - Cadastrar Centro de Custo");
-		System.out.println("02 - Cadastrar Fornecedores");
-		System.out.println("03 - Cadastrar Cliente");
-		System.out.println("04 - Cadastrar Unidade Organizacional");
-		System.out.println("05 - Cadastrar Carteira/Conta Bancaria");
-		System.out.println("06 - Cadastrar Categorias de Despesa");
-		System.out.println("07 - Cadastrar Categorias de Receita");
-		System.out.println("08 - Cadastrar Usuário");
-		System.out.println("09 - Cadastrar Despesa");
-		System.out.println("10 - Cadastrar Receita");
+		//System.out.println("01 - Cadastrar Centro de Custo");
+		
+		System.out.println("01 - Cadastrar Fornecedores");
+		System.out.println("02 - Cadastrar Cliente");
+		System.out.println("03 - Cadastrar Unidade Organizacional");
+		System.out.println("04 - Cadastrar Carteira/Conta Bancaria");
+		System.out.println("05 - Cadastrar Categorias de Despesa");
+		System.out.println("06 - Cadastrar Categorias de Receita");
+		System.out.println("07 - Cadastrar Usuário");
+		System.out.println("08 - Cadastrar Despesa");
+		System.out.println("9 - Cadastrar Receita");
 		System.out.println("0 - Sair");
 		
 		String s = scanner.nextLine();
