@@ -74,6 +74,11 @@
 		<mapping class="br.com.fluxocaixa.model.FornecedorFisico" />
 		<mapping class="br.com.fluxocaixa.model.FornecedorJuridico" />
 		<!-- Fornecedor -->
+		<mapping class="br.com.fluxocaixa.model.Cliente" />
+		<!--  Cliente -->
+		<mapping class="br.com.fluxocaixa.model.ClienteFisico" />
+		<mapping class="br.com.fluxocaixa.model.ClienteJuridico" />
+		<!--  Cliente -->
 		<mapping class="br.com.fluxocaixa.model.Conta" />
 		<!-- Conta -->
 		<mapping class="br.com.fluxocaixa.model.ContaCorrente" />

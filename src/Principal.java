@@ -9,6 +9,8 @@ import br.com.fluxocaixa.model.Categoria;
 import br.com.fluxocaixa.model.CategoriaCredito;
 import br.com.fluxocaixa.model.CategoriaDebito;
 import br.com.fluxocaixa.model.CentroCusto;
+import br.com.fluxocaixa.model.ClienteFisico;
+import br.com.fluxocaixa.model.ClienteJuridico;
 import br.com.fluxocaixa.model.ContaCorrente;
 import br.com.fluxocaixa.model.Despesa;
 import br.com.fluxocaixa.model.FluxoCaixa;
@@ -126,6 +128,77 @@ public class Principal
 
 	private static void cadastrarCliente() {
 		// TODO Auto-generated method stub
+		System.out.println("Selecione o tipo de cliente:");
+		System.out.println("");
+		System.out.println("01-Cliente Juridico");
+		System.out.println("02-Cliente Físico");
+		System.out.println("03-Voltar");
+		System.out.println("0-Sair");
+		
+		String s = scanner.nextLine();
+		int i = Integer.parseInt(s);
+		
+		switch(i)
+		{
+		case 0:
+			System.exit(0);
+			break;
+		case 1:
+			ClienteJuridico clienteJuridico = new ClienteJuridico();
+			System.out.println("Nome:");
+			clienteJuridico.setNome(scanner.nextLine());
+			System.out.println("CNPJ:");
+			clienteJuridico.setCnpj(scanner.nextLine());
+			System.out.println("Descrição:");
+			clienteJuridico.setDescricao(scanner.nextLine());
+			System.out.println("Telefone:");
+			clienteJuridico.setTelefone(scanner.nextLine());
+			System.out.println("Cidade:");
+			clienteJuridico.setCidade(scanner.nextLine());
+			System.out.println("Bairro:");
+			clienteJuridico.setBairro(scanner.nextLine());
+			System.out.println("CEP:");
+			clienteJuridico.setCep(scanner.nextLine());
+			System.out.println("Rua:");
+			clienteJuridico.setRua(scanner.nextLine());
+			System.out.println("Número:");
+			clienteJuridico.setNumero(scanner.nextLine());
+			
+			NegocioDAO dao = new NegocioDAO();
+			dao.salvarGenerico(clienteJuridico);			
+			
+			break;
+		case 2:
+			System.out.println("Forneça os dados para cadastro:");
+			ClienteFisico clienteFisico = new ClienteFisico();
+			System.out.println("Nome:");
+			clienteFisico.setNome(scanner.nextLine());
+			System.out.println("CPF:");
+			clienteFisico.setCpf(scanner.nextLine());
+			System.out.println("Descrição:");
+			clienteFisico.setDescricao(scanner.nextLine());
+			System.out.println("Telefone:");
+			clienteFisico.setTelefone(scanner.nextLine());
+			System.out.println("Cidade:");
+			clienteFisico.setCidade(scanner.nextLine());
+			System.out.println("Bairro:");
+			clienteFisico.setBairro(scanner.nextLine());
+			System.out.println("CEP:");
+			clienteFisico.setCep(scanner.nextLine());
+			System.out.println("Rua:");
+			clienteFisico.setRua(scanner.nextLine());
+			System.out.println("Número:");
+			clienteFisico.setNumero(scanner.nextLine());
+			
+			NegocioDAO dao1 = new NegocioDAO();	
+			dao1.salvarGenerico(clienteFisico);
+			break;
+		case 3:
+			break;
+		default:
+			break;
+		}
+		
 		
 	}
 
@@ -243,8 +316,10 @@ public class Principal
 			break;
 		case 3: //Cliente
 			cadastrarCliente();
+			break;
 		case 4:
 			cadastrarFornecedores(idMetodoCadastrarCentrosDeCustos);
+			break;
 		case 5:
 			opcoesSistema();
 			break;
