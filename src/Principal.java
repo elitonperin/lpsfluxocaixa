@@ -405,7 +405,7 @@ public class Principal
 		System.out.println("06 - Cadastrar Categorias de Receita");
 		System.out.println("07 - Cadastrar Usuário");
 		System.out.println("08 - Cadastrar Despesa");
-		System.out.println("9 - Cadastrar Receita");
+		System.out.println("09 - Cadastrar Receita");
 		System.out.println("0 - Sair");
 		
 		String s = scanner.nextLine();
