@@ -115,20 +115,25 @@ public class Principal
 	}
 
 
-	private static void cadastrarCategoriasDeDespesa() {
-		// TODO Auto-generated method stub
+	private static void cadastrarCategoriasDeDespesa()
+	{
 		
 	}
 
 
-	private static void cadastrarUnidadeOrganizacional() {
-		// TODO Auto-generated method stub
+	private static void cadastrarUnidadeOrganizacional()
+	{
 		
+		UnidadeOrganizacional unidadeOrganizacional = new UnidadeOrganizacional();
+		
+		System.out.println("Nome da Unidade Organizacional:");
+		String nome = scanner.nextLine();
+		unidadeOrganizacional.setNome(nome);
 	}
 
 
-	private static void cadastrarCliente() {
-		// TODO Auto-generated method stub
+	private static void cadastrarCliente()
+	{
 		System.out.println("Selecione o tipo de cliente:");
 		System.out.println("");
 		System.out.println("01-Cliente Juridico");
