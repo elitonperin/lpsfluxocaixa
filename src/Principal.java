@@ -33,7 +33,7 @@ public class Principal
 	static int idMetodoCadastrarCentrosDeCustos = 1;
 	
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws ParseException 
 	{
 		scanner = new Scanner(System.in);
 		
@@ -44,7 +44,7 @@ public class Principal
 	}
 	
 	
-	private static void opcoesSistema() {
+	private static void opcoesSistema() throws ParseException {
 		// TODO Auto-generated method stub
 		switch(painelDoSistema())
 		{
@@ -291,7 +291,7 @@ public class Principal
 	}
 
 
-	private static void cadastrarFornecedores(int idMetodo) {
+	private static void cadastrarFornecedores(int idMetodo) throws ParseException {
 		// TODO Auto-generated method stub
 		System.out.println("Selecione o tipo de fornecedor:");
 		System.out.println("");
