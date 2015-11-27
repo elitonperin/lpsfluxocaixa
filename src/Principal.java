@@ -128,9 +128,36 @@ public class Principal
 		
 		UnidadeOrganizacional unidadeOrganizacional = new UnidadeOrganizacional();
 		
-		System.out.println("Nome da Unidade Organizacional:");
+		System.out.println("Entre com o nome da Unidade Organizacional:");
 		String nome = scanner.nextLine();
 		unidadeOrganizacional.setNome(nome);
+		
+		System.out.println("Entre com o número externo:");
+		String numeroExterno = scanner.nextLine();
+		unidadeOrganizacional.setNumeroExterno(numeroExterno);
+		
+		System.out.println("Entre com o tipo de unidade:");
+		String tipoUnidade = scanner.nextLine();
+		unidadeOrganizacional.setTipoUnidade(tipoUnidade);
+		
+		
+		System.out.println("Existe unidade pai? (S/N)");
+		String existePai = scanner.nextLine().toUpperCase();
+		
+		
+		if(existePai == "S")
+		{
+			unidadeOrganizacional.setUnidadePai(null);
+		}
+		else
+		{
+			unidadeOrganizacional.setUnidadePai(null);
+		}
+		
+		
+		NegocioDAO dao = new NegocioDAO();	
+		dao.salvarGenerico(unidadeOrganizacional);
+		
 	}
 
 
