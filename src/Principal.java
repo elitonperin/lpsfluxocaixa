@@ -130,7 +130,7 @@ public class Principal
 		String banco = scanner.nextLine();
 		
 		System.out.println("Entre com o número da conta");
-		String numeroConta = scanner.nextLine();
+		String numeroDaConta = scanner.nextLine();
 		
 		System.out.println("Entre com a agência:");
 		String nomeDaAgencia = scanner.nextLine();
