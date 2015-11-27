@@ -120,6 +120,16 @@ public class Principal
 	private static void cadastrarCategoriasDeDespesa() {
 		// TODO Auto-generated method stub
 		
+		System.out.println("Lista de categorias de despeza:");
+		System.out.println("");
+		NegocioDAO dao = new NegocioDAO();
+		List<CategoriaDebito> list = dao.listarCategoriaDespesas();
+		CategoriaDebito categoria = null;
+				
+		cadastrarCategoriaDebito(categoria);
+		
+		
+		
 	}
 
 
@@ -442,6 +452,19 @@ public class Principal
 		categoria.setNome("Salário");
 	    categoria.setDescricao("Salário mensal"); 
 		categoria.setPai(null);
+
+		negocio.salvarGenerico(categoria);
+	}
+
+	static void cadastrarCategoriaDebito(CategoriaDebito categoriaPai){
+		NegocioDAO negocio = new NegocioDAO(); 
+		
+		CategoriaDebito categoria = new CategoriaDebito();
+		System.out.println("Digite o nome da categoria de débito:");
+		categoria.setNome(scanner.nextLine());
+		System.out.println("Digite a descrição da categoria de débito:");		
+		categoria.setDescricao(scanner.nextLine()); 
+		categoria.setPai(categoriaPai);
 
 		negocio.salvarGenerico(categoria);
 	}
