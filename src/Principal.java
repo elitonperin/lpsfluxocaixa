@@ -117,8 +117,8 @@ public class Principal
 	}
 
 
-	private static void cadastrarCategoriasDeDespesa() {
-		// TODO Auto-generated method stub
+	private static void cadastrarCategoriasDeDespesa()
+	{
 		
 		System.out.println("Lista de categorias de despeza:");
 		System.out.println("");
@@ -133,14 +133,46 @@ public class Principal
 	}
 
 
-	private static void cadastrarUnidadeOrganizacional() {
-		// TODO Auto-generated method stub
+	private static void cadastrarUnidadeOrganizacional()
+	{
+		
+		UnidadeOrganizacional unidadeOrganizacional = new UnidadeOrganizacional();
+		
+		System.out.println("Entre com o nome da Unidade Organizacional:");
+		String nome = scanner.nextLine();
+		unidadeOrganizacional.setNome(nome);
+		
+		System.out.println("Entre com o número externo:");
+		String numeroExterno = scanner.nextLine();
+		unidadeOrganizacional.setNumeroExterno(numeroExterno);
+		
+		System.out.println("Entre com o tipo de unidade:");
+		String tipoUnidade = scanner.nextLine();
+		unidadeOrganizacional.setTipoUnidade(tipoUnidade);
+		
+		
+		System.out.println("Existe unidade pai? (S/N)");
+		String existePai = scanner.nextLine().toUpperCase();
+		
+		
+		if(existePai == "S")
+		{
+			unidadeOrganizacional.setUnidadePai(null);
+		}
+		else
+		{
+			unidadeOrganizacional.setUnidadePai(null);
+		}
+		
+		
+		NegocioDAO dao = new NegocioDAO();	
+		dao.salvarGenerico(unidadeOrganizacional);
 		
 	}
 
 
-	private static void cadastrarCliente() {
-		// TODO Auto-generated method stub
+	private static void cadastrarCliente()
+	{
 		System.out.println("Selecione o tipo de cliente:");
 		System.out.println("");
 		System.out.println("01-Cliente Juridico");
