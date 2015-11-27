@@ -12,6 +12,8 @@ import br.com.fluxocaixa.model.CentroCusto;
 import br.com.fluxocaixa.model.ContaCorrente;
 import br.com.fluxocaixa.model.Despesa;
 import br.com.fluxocaixa.model.FluxoCaixa;
+import br.com.fluxocaixa.model.FornecedorFisico;
+import br.com.fluxocaixa.model.FornecedorJuridico;
 import br.com.fluxocaixa.model.NaoRealizado;
 import br.com.fluxocaixa.model.Realizado;
 import br.com.fluxocaixa.model.Receita;
@@ -20,6 +22,8 @@ import br.com.fluxocaixa.model.UnidadeOrganizacional;
 public class Principal 
 {
 	private static Scanner scanner;
+	static int idMetodoOpcoesSistema = 0;
+	static int idMetodoCadastrarCentrosDeCustos = 1;
 	
 	public static void main(String[] args) 
 	{
@@ -43,7 +47,7 @@ public class Principal
 			cadastrarCentrosDeCustos();
 			break;
 		case 2:
-			cadastrarFornecedores();
+			cadastrarFornecedores(idMetodoOpcoesSistema);
 			break;
 		case 3:
 			cadastrarCliente();
@@ -126,8 +130,81 @@ public class Principal
 	}
 
 
-	private static void cadastrarFornecedores() {
+	private static void cadastrarFornecedores(int idMetodo) {
 		// TODO Auto-generated method stub
+		System.out.println("Selecione o tipo de fornecedor:");
+		System.out.println("");
+		System.out.println("01-Fornecedor Juridico");
+		System.out.println("02-Fornecedor Físico");
+		System.out.println("03-Voltar");
+		System.out.println("0-Sair");
+		
+		String s = scanner.nextLine();
+		int i = Integer.parseInt(s);
+		
+		switch(i)
+		{
+		case 0:
+			break;
+		case 1:
+			System.out.println("Forneça os dados para cadastro:");
+			FornecedorJuridico fornecedorJuridico = new FornecedorJuridico();
+			System.out.println("Nome:");
+			fornecedorJuridico.setNome(scanner.nextLine());
+			System.out.println("CNPJ:");
+			fornecedorJuridico.setCnpj(scanner.nextLine());
+			System.out.println("Descrição:");
+			fornecedorJuridico.setDescricao(scanner.nextLine());
+			System.out.println("Telefone:");
+			fornecedorJuridico.setTelefone(scanner.nextLine());
+			System.out.println("Cidade:");
+			fornecedorJuridico.setCidade(scanner.nextLine());
+			System.out.println("Bairro:");
+			fornecedorJuridico.setBairro(scanner.nextLine());
+			System.out.println("CEP:");
+			fornecedorJuridico.setCep(scanner.nextLine());
+			System.out.println("Rua:");
+			fornecedorJuridico.setRua(scanner.nextLine());
+			System.out.println("Número:");
+			fornecedorJuridico.setNumero(scanner.nextLine());
+
+			NegocioDAO dao = new NegocioDAO();	
+			dao.salvarGenerico(fornecedorJuridico);
+			
+			break;
+		case 2:
+			System.out.println("Forneça os dados para cadastro:");
+			FornecedorFisico fornecedorFisico = new FornecedorFisico();
+			System.out.println("Nome:");
+			fornecedorFisico.setNome(scanner.nextLine());
+			System.out.println("CPF:");
+			fornecedorFisico.setCpf(scanner.nextLine());
+			System.out.println("Descrição:");
+			fornecedorFisico.setDescricao(scanner.nextLine());
+			System.out.println("Telefone:");
+			fornecedorFisico.setTelefone(scanner.nextLine());
+			System.out.println("Cidade:");
+			fornecedorFisico.setCidade(scanner.nextLine());
+			System.out.println("Bairro:");
+			fornecedorFisico.setBairro(scanner.nextLine());
+			System.out.println("CEP:");
+			fornecedorFisico.setCep(scanner.nextLine());
+			System.out.println("Rua:");
+			fornecedorFisico.setRua(scanner.nextLine());
+			System.out.println("Número:");
+			fornecedorFisico.setNumero(scanner.nextLine());
+			
+			NegocioDAO dao1 = new NegocioDAO();	
+			dao1.salvarGenerico(fornecedorFisico);
+			
+			break;
+		case 3:
+			if(idMetodo == idMetodoOpcoesSistema)
+				opcoesSistema();
+			else if(idMetodo == idMetodoCadastrarCentrosDeCustos)
+				cadastrarCentrosDeCustos();
+			break;
+		}
 		
 	}
 
@@ -160,7 +237,7 @@ public class Principal
 		case 3: //Cliente
 			cadastrarCliente();
 		case 4:
-			cadastrarFornecedores();
+			cadastrarFornecedores(idMetodoCadastrarCentrosDeCustos);
 		case 5:
 			opcoesSistema();
 			break;
