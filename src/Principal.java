@@ -1,3 +1,6 @@
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,6 +31,7 @@ public class Principal
 	private static Scanner scanner;
 	static int idMetodoOpcoesSistema = 0;
 	static int idMetodoCadastrarCentrosDeCustos = 1;
+	
 	
 	public static void main(String[] args) 
 	{
@@ -111,8 +115,43 @@ public class Principal
 	}
 
 
-	private static void cadastrarCarteiraContaBancaria() {
-		// TODO Auto-generated method stub
+	private static void cadastrarCarteiraContaBancaria() throws ParseException {
+
+		
+		
+		System.out.println("Tipo de conta:");
+		System.out.println("1 - cartão de crédito");
+		System.out.println("2 - conta corrente");
+		System.out.println("3 - conta poupança");
+		System.out.println("4 - carteira");
+		String tipoConta = scanner.nextLine();
+		
+		System.out.println("Entre com o banco: ");
+		String banco = scanner.nextLine();
+		
+		System.out.println("Entre com o número da conta");
+		String numeroConta = scanner.nextLine();
+		
+		System.out.println("Entre com a agência:");
+		String nomeDaAgencia = scanner.nextLine();
+		
+		System.out.println("Entre com o gerente:");
+		String gerente = scanner.nextLine();
+		
+		System.out.println("Entre com o telefone:");
+		String telefone = scanner.nextLine();
+		
+		System.out.println("Entre com o saldo inicial:");
+		String saldoInicial = scanner.nextLine();
+		float saldoInicialF = Float.parseFloat(saldoInicial);
+		
+		System.out.println("Entre com a dataDeVencimento:");
+		
+		String dataDeVencimentoString = scanner.nextLine();
+		DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
+		
+		
+		Date dataDeVencimentoDate = dateFormat.parse(dataDeVencimentoString);
 		
 	}
 
@@ -421,6 +460,7 @@ public class Principal
 						
 			break;
 		case 2: //Caixa
+			
 			break;
 		case 3: //Cartão de Crédito
 			break;
