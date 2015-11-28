@@ -32,8 +32,6 @@ import br.com.fluxocaixa.model.UnidadeOrganizacional;
 public class Principal 
 {
 	private static Scanner scanner;
-	static int idMetodoOpcoesSistema = 0;
-	static int idMetodoCadastrarCentrosDeCustos = 1;
 	static DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
 	
 	public static void main(String[] args) throws ParseException 
@@ -51,14 +49,14 @@ public class Principal
 		switch(painelDoSistema())
 		{
 		case 0:
-			
+			System.exit(0);
 			break;
 		/*case 1:
 			cadastrarCentrosDeCustos();
 			break;
 		*/
 		case 1:
-			cadastrarFornecedores(idMetodoOpcoesSistema);
+			cadastrarFornecedores();
 			break;
 		case 2:
 			cadastrarCliente();
@@ -90,6 +88,7 @@ public class Principal
 			opcoesSistema();
 			break;
 		}
+		opcoesSistema();
 	}
 
 
@@ -507,7 +506,7 @@ public class Principal
 	}
 
 
-	private static void cadastrarFornecedores(int idMetodo) throws ParseException {
+	private static void cadastrarFornecedores() throws ParseException {
 		System.out.println("Selecione o tipo de fornecedor:");
 		System.out.println("");
 		System.out.println("01-Fornecedor Juridico");
@@ -576,16 +575,11 @@ public class Principal
 			
 			break;
 		case 3:
-			if(idMetodo == idMetodoOpcoesSistema)
 				opcoesSistema();
-			/*else if(idMetodo == idMetodoCadastrarCentrosDeCustos)
-				cadastrarCentrosDeCustos();*/
-			else 
-				System.exit(0);
 			break;
 		default:
 			System.out.println("Insira uma opção válida.");
-			cadastrarFornecedores(idMetodo);
+			cadastrarFornecedores();
 			break;
 		}
 		
