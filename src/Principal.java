@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.com.fluxocaixa.dao.NegocioDAO;
+import br.com.fluxocaixa.model.Atrasado;
 import br.com.fluxocaixa.model.Carteira;
 import br.com.fluxocaixa.model.Categoria;
 import br.com.fluxocaixa.model.CategoriaCredito;
@@ -16,6 +17,7 @@ import br.com.fluxocaixa.model.ClienteFisico;
 import br.com.fluxocaixa.model.ClienteFisicoEmail;
 import br.com.fluxocaixa.model.ClienteJuridico;
 import br.com.fluxocaixa.model.ClienteJuridicoEmail;
+import br.com.fluxocaixa.model.Conta;
 import br.com.fluxocaixa.model.ContaCorrente;
 import br.com.fluxocaixa.model.Despesa;
 import br.com.fluxocaixa.model.FluxoCaixa;
@@ -24,6 +26,7 @@ import br.com.fluxocaixa.model.FornecedorJuridico;
 import br.com.fluxocaixa.model.NaoRealizado;
 import br.com.fluxocaixa.model.Realizado;
 import br.com.fluxocaixa.model.Receita;
+import br.com.fluxocaixa.model.Status;
 import br.com.fluxocaixa.model.UnidadeOrganizacional;
 
 public class Principal 
@@ -98,11 +101,12 @@ public class Principal
 	}
 
 
-	private static void cadastrarDespesa() {
+	private static void cadastrarDespesa() throws ParseException {
 		// TODO Auto-generated method stub
 		NegocioDAO negocio = new NegocioDAO(); 
 		
 		Despesa despesa = new Despesa();
+		/////////////////////////////////////////////////////////////////////////////
 		System.out.println("Lista de Categorias de Débito:");
 		List<CategoriaDebito> listaCategoria = negocio.listarCategoriaDespesas();
 		int i = 0;
@@ -115,37 +119,60 @@ public class Principal
 		String s = scanner.nextLine();
 		i = Integer.parseInt(s);
 		despesa.setCategoria(listaCategoria.get(i));
-				
+		/////////////////////////////////////////////////////////////////////////////
+		
 		System.out.println("Lista de Centros de Custos:");
-		List<CategoriaCredito> listaCentroCusto = negocio.listarCentroCustoDespesas();
-		i = 0;
-		for(CategoriaCredito c : listaCentroCusto)
-		{
-			System.out.println(i + " : " + c.getNome());
-			i++;
-		}
 		System.out.println("Selecione o Centro de Custo:");
 		s = scanner.nextLine();
 		i = Integer.parseInt(s);
 		
-		
-		List<CentroCusto> custos = new ArrayList<CentroCusto>(1);
+		List<CentroCusto> custos = new ArrayList<CentroCusto>();
 		//custos.add(listaCentroCusto.get(i));
 		despesa.setCentrosCusto(custos);
-		
+
+		/////////////////////////////////////////////////////////////////////////////
 		System.out.println("Insira uma data:");
-		despesa.setData(new Date());
+		DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
+		s = scanner.nextLine();
+		Date data = dateFormat.parse(s);
+		despesa.setData(data);
+		/////////////////////////////////////////////////////////////////////////////		
 		System.out.println("Insira a quantidade de parcelas:");
-		despesa.setNumeroParcela(1);
+		s = scanner.nextLine();
+		i = Integer.parseInt(s);
+		despesa.setNumeroParcela(i);
+		/////////////////////////////////////////////////////////////////////////////
 		System.out.println("Insira o valor:");
-		despesa.setValor(new Float(65.90));
+		s = scanner.nextLine();
+		Float f = Float.valueOf(s);
+		despesa.setValor(f);
+		/////////////////////////////////////////////////////////////////////////////
 		System.out.println("Insira uma observação:");
-		despesa.setObservacao("Pagamento refernte ao fluxo geral");
+		s = scanner.nextLine();
+		despesa.setObservacao(s);
+		/////////////////////////////////////////////////////////////////////////////
 		System.out.println("Lista de estados:");
-		Realizado estado = new Realizado();
-		estado.setMovimentacao(despesa);
-		estado.setData(new Date());
+		System.out.println("1 - Realizado");
+		System.out.println("2 - Não Realizado");
+		System.out.println("3 - Atrasado");
+		System.out.println("Escolha o estado:");
+		s = scanner.nextLine();
+		i = Integer.parseInt(s);
+		Status estado = null;
+		if(i == 1)
+			estado = new Realizado();
+		else if(i == 2)
+			estado =  new NaoRealizado();
+		else if(i == 3)
+			estado = new Atrasado();
 		
+		estado.setMovimentacao(despesa);
+		/////////////////////////////////////////////////////////////////////////////
+		System.out.println("Insira a data dessa movimentação:");
+		String dataDeVencimentoString = scanner.nextLine();
+		Date dataDeVencimentoDate = dateFormat.parse(dataDeVencimentoString);
+		estado.setData(dataDeVencimentoDate);
+		/////////////////////////////////////////////////////////////////////////////
 		negocio.inserirDespesas(despesa, estado);
 	}
 
@@ -718,3 +745,4 @@ public class Principal
 	
 
 }
+
