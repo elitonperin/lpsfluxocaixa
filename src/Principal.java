@@ -48,7 +48,6 @@ public class Principal
 	
 	
 	private static void opcoesSistema() throws ParseException {
-		// TODO Auto-generated method stub
 		switch(painelDoSistema())
 		{
 		case 0:
