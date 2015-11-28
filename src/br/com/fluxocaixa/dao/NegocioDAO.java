@@ -169,6 +169,10 @@ public class NegocioDAO {
 	public List<CentroCusto> listaCentroCustoReceitas(){		
         return session.createCriteria(CentroCusto.class).list();
 	}
+	public List<Categoria> listaCategorias()
+	{
+		return session.createCriteria(Categoria.class).list();
+	}
 	
 	public List<CentroCusto> listarCentroCustoDespesas(){		
         return session.createCriteria(CentroCusto.class).list();
