@@ -68,7 +68,7 @@ public class Principal
 			cadastrarCarteiraContaBancaria();
 			break;
 		case 5:
-			cadastrarCategoriasDeDespesa();
+			cadastrarCategoriaDeDespesa();
 			break;
 		case 6:
 			cadastrarCategoriaDeReceita();
@@ -104,12 +104,6 @@ public class Principal
 
 
 	private static void cadastrarUsuario() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private static void cadastrarCategoriaDeReceita() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -171,19 +165,74 @@ public class Principal
 	}
 
 
-	private static void cadastrarCategoriasDeDespesa()
+	private static void cadastrarCategoriaDeDespesa()
 	{
 		
-		System.out.println("Lista de categorias de despeza:");
+		System.out.println("Lista de categorias de despeza atual:");
 		System.out.println("");
 		NegocioDAO dao = new NegocioDAO();
 		List<CategoriaDebito> list = dao.listarCategoriaDespesas();
 		CategoriaDebito categoria = null;
-				
+		int i = 0;
+		for(CategoriaDebito cd : list)
+		{
+			System.out.println(" " + i + " : " + cd.getNome());
+			i++;
+		}
+		System.out.println("-1 : -Para uma categoria nova, sem pai");
+		System.out.println("");
+		System.out.println("Escolha uma das opções acima para ser pai da nova categoria a ser criada.");		
+		
+		String s = scanner.nextLine();
+		i = Integer.parseInt(s);
+		
+		if(i != -1 && i < list.size())
+			categoria = list.get(i);
+		
 		cadastrarCategoriaDebito(categoria);
+	}
+	
+
+	private static void cadastrarCategoriaDeReceita()
+	{
 		
+		System.out.println("Lista de categorias de receita atual:");
+		System.out.println("");
+		NegocioDAO dao = new NegocioDAO();
+		List<CategoriaCredito> list = dao.listarCategoriaReceitas();
+		CategoriaCredito categoria = null;
+		int i = 0;
+		for(CategoriaCredito cd : list)
+		{
+			System.out.println(" " + i + " : " + cd.getNome());
+			i++;
+		}
+		System.out.println("-1 : Para uma categoria nova, sem pai");
+		System.out.println("");
+		System.out.println("Escolha uma das opções acima para ser pai da nova categoria a ser criada.");		
 		
+		String s = scanner.nextLine();
+		i = Integer.parseInt(s);
 		
+		if(i != -1 && i < list.size())
+			categoria = list.get(i);
+		
+		cadastrarCategoriaCredito(categoria);		
+	}
+	
+	private static void printFilhos(CategoriaDebito cd)
+	{
+		int i = 0;
+		if(cd != null)
+		{
+			for(Categoria c : cd.getFilhos())
+			{
+				System.out.println("\t" + i + " : " + c.getNome());
+				printFilhos((CategoriaDebito)c);
+				i++;
+			}
+			
+		}
 	}
 
 
@@ -550,6 +599,20 @@ public class Principal
 		System.out.println("Digite o nome da categoria de débito:");
 		categoria.setNome(scanner.nextLine());
 		System.out.println("Digite a descrição da categoria de débito:");		
+		categoria.setDescricao(scanner.nextLine()); 
+		categoria.setPai(categoriaPai);
+
+		negocio.salvarGenerico(categoria);
+	}
+	
+
+	static void cadastrarCategoriaCredito(CategoriaCredito categoriaPai){
+		NegocioDAO negocio = new NegocioDAO(); 
+		
+		CategoriaCredito categoria = new CategoriaCredito();
+		System.out.println("Digite o nome da categoria de crédito:");
+		categoria.setNome(scanner.nextLine());
+		System.out.println("Digite a descrição da categoria de crédito:");		
 		categoria.setDescricao(scanner.nextLine()); 
 		categoria.setPai(categoriaPai);
 
