@@ -23,6 +23,7 @@ import br.com.fluxocaixa.model.Despesa;
 import br.com.fluxocaixa.model.FluxoCaixa;
 import br.com.fluxocaixa.model.FornecedorFisico;
 import br.com.fluxocaixa.model.FornecedorJuridico;
+import br.com.fluxocaixa.model.Funcionario;
 import br.com.fluxocaixa.model.NaoRealizado;
 import br.com.fluxocaixa.model.Realizado;
 import br.com.fluxocaixa.model.Receita;
@@ -271,6 +272,24 @@ public class Principal
 
 
 	private static void cadastrarUsuario() {
+		NegocioDAO dao =  new NegocioDAO();
+		String s = "";
+		Funcionario funcionario = new Funcionario();
+
+		System.out.println("Entre com a matrícula:");
+		s = scanner.nextLine();
+		funcionario.setMatricula(s);
+		System.out.println("Entre com um nome:");
+		s = scanner.nextLine();
+		funcionario.setNome(s);
+		System.out.println("Entre com um cargo:");
+		s = scanner.nextLine();
+		funcionario.setCargo(s);
+		System.out.println("Entre com função:");
+		s = scanner.nextLine();
+		funcionario.setFuncao(s);
+		
+		dao.salvarGenerico(funcionario);
 		
 	}
 
