@@ -97,12 +97,34 @@ public class Principal
 		Receita receita = new Receita();
 		String s;
 		Integer i;
-				
+		
+		List<CategoriaCredito> categorias = negocio.listarCategoriaReceitas();
+		if(categorias.size() > 0)
+		{
+			System.out.println("Lista de categorias:");
+			i = 0;
+			for(Categoria c : categorias)
+			{
+				System.out.println(i + " : "  + c.toString());
+				i++;
+			}
+			System.out.println("Selecione o Centro de Custo:");
+			s = scanner.nextLine();
+			i = Integer.parseInt(s);
+			receita.setCategoria(categorias.get(i));
+
+		}
+		else
+		{
+			System.out.println("Não há categoria");
+		}
+			
 		List<CentroCusto> custos = new ArrayList<CentroCusto>();
 		List<CentroCusto> centroCustos = negocio.listaCentroCustoReceitas();
 		boolean flag = true;
 		while(flag)
 		{
+			
 			if(centroCustos.size() == 0)
 			{
 				System.out.println("Não há centros de custo");
