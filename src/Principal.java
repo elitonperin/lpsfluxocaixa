@@ -34,7 +34,7 @@ public class Principal
 	private static Scanner scanner;
 	static int idMetodoOpcoesSistema = 0;
 	static int idMetodoCadastrarCentrosDeCustos = 1;
-	
+	static DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
 	
 	public static void main(String[] args) throws ParseException 
 	{
@@ -97,23 +97,23 @@ public class Principal
 	private static void cadastrarReceita() throws ParseException {
 		
 		Receita receita = new Receita();
+		String s;
+		Integer i;
 		
-		System.out.println("Entre com a data:");
 		
-		NegocioDAO dao = new NegocioDAO();
 
-		System.out.println("Lista de Centros de Custos:");
-		System.out.println("Selecione o Centro de Custo:");
-		String s = scanner.nextLine();
-		Integer i = Integer.parseInt(s);
+		//System.out.println("Lista de Centros de Custos:");
+		//System.out.println("Selecione o Centro de Custo:");
+		//s = scanner.nextLine();
+		//i = Integer.parseInt(s);
 		
-		List<CentroCusto> custos = new ArrayList<CentroCusto>();
+		//List<CentroCusto> custos = new ArrayList<CentroCusto>();
 		//custos.add(listaCentroCusto.get(i));
-		receita.setCentrosCusto(custos);
+		//receita.setCentrosCusto(custos);
 
 		/////////////////////////////////////////////////////////////////////////////
 		System.out.println("Insira uma data:");
-		DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
+		
 		s = scanner.nextLine();
 		Date data = dateFormat.parse(s);
 		receita.setData(data);
@@ -147,8 +147,13 @@ public class Principal
 		else if(i == 3)
 			estado = new Atrasado();
 		
+		
+		//receita.setCategoria(categoria);
+		
 		estado.setMovimentacao(receita);
 		
+		
+		NegocioDAO dao = new NegocioDAO();
 		dao.inserirReceitas(receita, estado);
 	}
 
