@@ -187,14 +187,10 @@ public class Principal
 		else if(i == 3)
 			estado = new Atrasado();
 		
-		//TODO: setar categoria
-		//receita.setCategoria(categoria);
-		
 		estado.setMovimentacao(receita);
 		
 		
-		NegocioDAO dao = new NegocioDAO();
-		dao.inserirReceitas(receita, estado);
+		negocio.inserirReceitas(receita, estado);
 	}
 
 
