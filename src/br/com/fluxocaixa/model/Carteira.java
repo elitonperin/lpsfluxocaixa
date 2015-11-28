@@ -116,5 +116,12 @@ public class Carteira extends Conta {
 		this.dataDeVencimento = dataDeVencimento;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getClass().getSimpleName() + " Banco: " + banco + " Saldo: " + saldo + 
+				"\nData de Vencimento: " + dataDeVencimento + "Telefone: " + telefone + 
+				"\nGerente: " + gerente + " Nome da Agência: " + nomeDaAgencia + 
+				"\nNúmero da Conta: " + numeroDaConta + " Tipo de Conta: " + tipoConta;
+	}
 }

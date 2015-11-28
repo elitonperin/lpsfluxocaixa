@@ -177,12 +177,19 @@ public class Principal
 		/////////////////////////////////////////////////////////////////////////////
 		
 		System.out.println("Lista de Centros de Custos:");
+		List<CentroCusto> centroCustos = negocio.listarCentroCustoDespesas();
+		i = 0;
+		for(CentroCusto c : centroCustos)
+		{
+			System.out.println(i + " : "  + c.toString());
+			i++;
+		}
 		System.out.println("Selecione o Centro de Custo:");
 		s = scanner.nextLine();
 		i = Integer.parseInt(s);
 		
 		List<CentroCusto> custos = new ArrayList<CentroCusto>();
-		//custos.add(listaCentroCusto.get(i));
+		custos.add(centroCustos.get(i));
 		despesa.setCentrosCusto(custos);
 
 		/////////////////////////////////////////////////////////////////////////////
@@ -230,6 +237,7 @@ public class Principal
 		/////////////////////////////////////////////////////////////////////////////
 		negocio.inserirDespesas(despesa, estado);
 	}
+
 
 
 	private static void cadastrarUsuario() {

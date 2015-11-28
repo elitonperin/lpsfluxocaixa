@@ -170,7 +170,7 @@ public class NegocioDAO {
         return session.createCriteria(CentroCusto.class).list();
 	}
 	
-	public List<Object> listarCentroCustoDespesas(){		
+	public List<CentroCusto> listarCentroCustoDespesas(){		
         return session.createCriteria(CentroCusto.class).list();
 	}
 	
