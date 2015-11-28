@@ -93,13 +93,60 @@ public class Principal
 
 	private static void cadastrarReceita() {
 		// TODO Auto-generated method stub
+		NegocioDAO dao = new NegocioDAO();
 		
 	}
 
 
 	private static void cadastrarDespesa() {
 		// TODO Auto-generated method stub
+		NegocioDAO negocio = new NegocioDAO(); 
 		
+		Despesa despesa = new Despesa();
+		System.out.println("Lista de Categorias de Débito:");
+		List<CategoriaDebito> listaCategoria = negocio.listarCategoriaDespesas();
+		int i = 0;
+		for(CategoriaDebito c : listaCategoria)
+		{
+			System.out.println(i + " : " + c.getNome());
+			i++;
+		}
+		System.out.println("Selecione a categoria de despesa:");
+		String s = scanner.nextLine();
+		i = Integer.parseInt(s);
+		despesa.setCategoria(listaCategoria.get(i));
+				
+		System.out.println("Lista de Centros de Custos:");
+		List<CategoriaCredito> listaCentroCusto = negocio.listarCentroCustoDespesas();
+		i = 0;
+		for(CategoriaCredito c : listaCentroCusto)
+		{
+			System.out.println(i + " : " + c.getNome());
+			i++;
+		}
+		System.out.println("Selecione o Centro de Custo:");
+		s = scanner.nextLine();
+		i = Integer.parseInt(s);
+		
+		
+		List<CentroCusto> custos = new ArrayList<CentroCusto>(1);
+		//custos.add(listaCentroCusto.get(i));
+		despesa.setCentrosCusto(custos);
+		
+		System.out.println("Insira uma data:");
+		despesa.setData(new Date());
+		System.out.println("Insira a quantidade de parcelas:");
+		despesa.setNumeroParcela(1);
+		System.out.println("Insira o valor:");
+		despesa.setValor(new Float(65.90));
+		System.out.println("Insira uma observação:");
+		despesa.setObservacao("Pagamento refernte ao fluxo geral");
+		System.out.println("Lista de estados:");
+		Realizado estado = new Realizado();
+		estado.setMovimentacao(despesa);
+		estado.setData(new Date());
+		
+		negocio.inserirDespesas(despesa, estado);
 	}
 
 
@@ -179,7 +226,7 @@ public class Principal
 			System.out.println(" " + i + " : " + cd.getNome());
 			i++;
 		}
-		System.out.println("-1 : -Para uma categoria nova, sem pai");
+		System.out.println("-1 : Para uma categoria nova, sem pai");
 		System.out.println("");
 		System.out.println("Escolha uma das opções acima para ser pai da nova categoria a ser criada.");		
 		
@@ -218,21 +265,6 @@ public class Principal
 			categoria = list.get(i);
 		
 		cadastrarCategoriaCredito(categoria);		
-	}
-	
-	private static void printFilhos(CategoriaDebito cd)
-	{
-		int i = 0;
-		if(cd != null)
-		{
-			for(Categoria c : cd.getFilhos())
-			{
-				System.out.println("\t" + i + " : " + c.getNome());
-				printFilhos((CategoriaDebito)c);
-				i++;
-			}
-			
-		}
 	}
 
 
