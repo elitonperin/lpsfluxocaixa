@@ -75,7 +75,15 @@ public abstract class Cliente extends CentroCusto {
 		this.telefone = telefone;
 	}
 
-	
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getClass().getSimpleName() + " Nome: " + getNome() + 
+				"\nTelefone: " + getTelefone() + " Descrição: " + getDescricao() + 
+				"\nCidade: " + getCidade() + " Bairro: " + getBairro() + 
+				"\nRua: " + getRua() + " Número: " + getNumero() + " CEP: " + getCep();
+	}
 	
 	
 }

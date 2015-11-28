@@ -23,4 +23,13 @@ public class FornecedorJuridico extends Fornecedor {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}	
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getClass().getSimpleName() + " CNPJ: " + getCnpj() + " Nome: " + getNome() + 
+				"\nTelefone: " + getTelefone() + " Descrição: " + getDescricao() + 
+				"\nCidade: " + getCidade() + " Bairro: " + getBairro() + 
+				"\nRua: " + getRua() + " Número: " + getNumero() + " CEP: ";
+	}
 }

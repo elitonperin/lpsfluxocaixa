@@ -48,4 +48,13 @@ public class ClienteJuridicoEmail extends ClienteJuridico {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getClass().getSimpleName() + " CNPJ: " + getCnpj() + " Nome: " + getNome() + 
+				"\nTelefone: " + getTelefone() + " Email: " + email + " Descrição: " + getDescricao() + 
+				"\nCidade: " + getCidade() + " Bairro: " + getBairro() + 
+				"\nRua: " + getRua() + " Número: " + getNumero() + " CEP: " + getCep();
+	}
+
 }

@@ -23,5 +23,13 @@ public class ClienteFisico extends Cliente {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getClass().getSimpleName() + " CPF: " + cpf + " Nome: " + getNome() + 
+				"\nTelefone: " + getTelefone() + " Descrição: " + getDescricao() + 
+				"\nCidade: " + getCidade() + " Bairro: " + getBairro() + 
+				"\nRua: " + getRua() + " Número: " + getNumero() + " CEP: " + getCep();
+	}
 	
 }

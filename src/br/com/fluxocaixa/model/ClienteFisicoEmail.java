@@ -30,4 +30,13 @@ public class ClienteFisicoEmail extends ClienteFisico {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getClass().getSimpleName() + " CPF: " + getCpf() + " Nome: " + getNome() + 
+				"\nTelefone: " + getTelefone() + " Email: " + email + " Descrição: " + getDescricao() + 
+				"\nCidade: " + getCidade() + " Bairro: " + getBairro() + 
+				"\nRua: " + getRua() + " Número: " + getNumero() + " CEP: " + getCep();
+	}
 }
