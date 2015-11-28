@@ -101,7 +101,7 @@ public class Principal
 		Integer i;
 		
 		
-
+		//TODO: selecionar centro de custo
 		//System.out.println("Lista de Centros de Custos:");
 		//System.out.println("Selecione o Centro de Custo:");
 		//s = scanner.nextLine();
@@ -147,7 +147,7 @@ public class Principal
 		else if(i == 3)
 			estado = new Atrasado();
 		
-		
+		//TODO: setar categoria
 		//receita.setCategoria(categoria);
 		
 		estado.setMovimentacao(receita);
@@ -234,7 +234,6 @@ public class Principal
 
 
 	private static void cadastrarUsuario() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -471,7 +470,6 @@ public class Principal
 
 
 	private static void cadastrarFornecedores(int idMetodo) throws ParseException {
-		// TODO Auto-generated method stub
 		System.out.println("Selecione o tipo de fornecedor:");
 		System.out.println("");
 		System.out.println("01-Fornecedor Juridico");
@@ -558,7 +556,6 @@ public class Principal
 
 	/*
 	private static void cadastrarCentrosDeCustos() {
-		// TODO Auto-generated method stub
 		
 		System.out.println("Selecione o tipo de Centro de Custo para ser inserido:");
 		System.out.println("");
@@ -600,7 +597,6 @@ public class Principal
 	*/
 
 	private static void cadastrarConta() {
-		// TODO Auto-generated method stub
 		System.out.println("Selecione o tipo de Conta que deseja Cadastrar: ");
 		System.out.println("");
 		System.out.println("01-Conta Corrente");
@@ -658,7 +654,6 @@ public class Principal
 
 	private static int painelDoSistema() 
 	{
-		// TODO Auto-generated method stub
 
 		System.out.println("Escolha uma opção abaixo:");
 		
