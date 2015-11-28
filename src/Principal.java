@@ -94,15 +94,66 @@ public class Principal
 	}
 
 
-	private static void cadastrarReceita() {
-		// TODO Auto-generated method stub
-		NegocioDAO dao = new NegocioDAO();
+	private static void cadastrarReceita() throws ParseException {
 		
+		Receita receita = new Receita();
+		
+		System.out.println("Entre com a data:");
+		
+		NegocioDAO dao = new NegocioDAO();
+
+		System.out.println("Lista de Centros de Custos:");
+		System.out.println("Selecione o Centro de Custo:");
+		String s = scanner.nextLine();
+		Integer i = Integer.parseInt(s);
+		
+		List<CentroCusto> custos = new ArrayList<CentroCusto>();
+		//custos.add(listaCentroCusto.get(i));
+		receita.setCentrosCusto(custos);
+
+		/////////////////////////////////////////////////////////////////////////////
+		System.out.println("Insira uma data:");
+		DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
+		s = scanner.nextLine();
+		Date data = dateFormat.parse(s);
+		receita.setData(data);
+		/////////////////////////////////////////////////////////////////////////////		
+		System.out.println("Insira a quantidade de parcelas:");
+		s = scanner.nextLine();
+		i = Integer.parseInt(s);
+		receita.setNumeroParcela(i);
+		/////////////////////////////////////////////////////////////////////////////
+		System.out.println("Insira o valor:");
+		s = scanner.nextLine();
+		Float f = Float.valueOf(s);
+		receita.setValor(f);
+		/////////////////////////////////////////////////////////////////////////////
+		System.out.println("Insira uma observação:");
+		s = scanner.nextLine();
+		receita.setObservacao(s);
+		/////////////////////////////////////////////////////////////////////////////
+		System.out.println("Lista de estados:");
+		System.out.println("1 - Realizado");
+		System.out.println("2 - Não Realizado");
+		System.out.println("3 - Atrasado");
+		System.out.println("Escolha o estado:");
+		s = scanner.nextLine();
+		i = Integer.parseInt(s);
+		Status estado = null;
+		if(i == 1)
+			estado = new Realizado();
+		else if(i == 2)
+			estado =  new NaoRealizado();
+		else if(i == 3)
+			estado = new Atrasado();
+		
+		estado.setMovimentacao(receita);
+		
+		dao.inserirReceitas(receita, estado);
 	}
 
 
 	private static void cadastrarDespesa() throws ParseException {
-		// TODO Auto-generated method stub
 		NegocioDAO negocio = new NegocioDAO(); 
 		
 		Despesa despesa = new Despesa();
