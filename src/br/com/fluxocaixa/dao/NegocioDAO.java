@@ -166,7 +166,7 @@ public class NegocioDAO {
 	 * Exemplo: se só faz credito de uma conta p/ um fornecedor a lista deve 
 	 * retornar uma lista de contas e uma lista de fornecedores
 	 */
-	public List<CategoriaCredito> listaCentroCustoReceitas(){		
+	public List<CentroCusto> listaCentroCustoReceitas(){		
         return session.createCriteria(CentroCusto.class).list();
 	}
 	

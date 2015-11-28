@@ -94,21 +94,40 @@ public class Principal
 
 
 	private static void cadastrarReceita() throws ParseException {
-		
+		NegocioDAO negocio = new NegocioDAO();
 		Receita receita = new Receita();
 		String s;
 		Integer i;
-		
-		
-		//TODO: selecionar centro de custo
-		//System.out.println("Lista de Centros de Custos:");
-		//System.out.println("Selecione o Centro de Custo:");
-		//s = scanner.nextLine();
-		//i = Integer.parseInt(s);
-		
-		//List<CentroCusto> custos = new ArrayList<CentroCusto>();
-		//custos.add(listaCentroCusto.get(i));
-		//receita.setCentrosCusto(custos);
+				
+		List<CentroCusto> custos = new ArrayList<CentroCusto>();
+		List<CentroCusto> centroCustos = negocio.listaCentroCustoReceitas();
+		boolean flag = true;
+		while(flag)
+		{
+			if(centroCustos.size() == 0)
+			{
+				System.out.println("Não há centros de custo");
+				break;
+			}
+			System.out.println("Lista de Centros de Custos:");
+			i = 0;
+			for(CentroCusto c : centroCustos)
+			{
+				System.out.println(i + " : "  + c.toString());
+				i++;
+			}
+			System.out.println("Selecione o Centro de Custo:");
+			s = scanner.nextLine();
+			i = Integer.parseInt(s);
+			custos.add(centroCustos.get(i));
+			centroCustos.remove(i);
+			
+			System.out.println("Deseja adicionar mais algum centro de custo? (S, N)");
+			s = scanner.nextLine();
+			if(!s.toUpperCase().equals("S"))
+				flag = false;
+		}
+		receita.setCentrosCusto(custos);
 
 		/////////////////////////////////////////////////////////////////////////////
 		System.out.println("Insira uma data:");
@@ -175,21 +194,33 @@ public class Principal
 		i = Integer.parseInt(s);
 		despesa.setCategoria(listaCategoria.get(i));
 		/////////////////////////////////////////////////////////////////////////////
-		
-		System.out.println("Lista de Centros de Custos:");
-		List<CentroCusto> centroCustos = negocio.listarCentroCustoDespesas();
-		i = 0;
-		for(CentroCusto c : centroCustos)
-		{
-			System.out.println(i + " : "  + c.toString());
-			i++;
-		}
-		System.out.println("Selecione o Centro de Custo:");
-		s = scanner.nextLine();
-		i = Integer.parseInt(s);
-		
 		List<CentroCusto> custos = new ArrayList<CentroCusto>();
-		custos.add(centroCustos.get(i));
+		List<CentroCusto> centroCustos = negocio.listarCentroCustoDespesas();
+		boolean flag = true;
+		while(flag)
+		{
+			if(centroCustos.size() == 0)
+			{
+				System.out.println("Não há centros de custo");
+				break;
+			}
+			System.out.println("Lista de Centros de Custos:");
+			i = 0;
+			for(CentroCusto c : centroCustos)
+			{
+				System.out.println(i + " : "  + c.toString());
+				i++;
+			}
+			System.out.println("Selecione o Centro de Custo:");
+			s = scanner.nextLine();
+			i = Integer.parseInt(s);
+			custos.add(centroCustos.get(i));
+			centroCustos.remove(i);
+			System.out.println("Deseja adicionar mais algum centro de custo? (S, N)");
+			s = scanner.nextLine();
+			if(!s.toUpperCase().equals("S"))
+				flag = false;
+		}
 		despesa.setCentrosCusto(custos);
 
 		/////////////////////////////////////////////////////////////////////////////
