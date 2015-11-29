@@ -104,9 +104,9 @@ public class Principal
 		{
 			System.out.println("Lista de categorias:");
 			i = 0;
-			for(Categoria c : categorias)
+			for(CategoriaCredito c : categorias)
 			{
-				System.out.println(i + " : "  + c.toString());
+				System.out.println(i + " : "  + c.getNome());
 				i++;
 			}
 			System.out.println("Selecione o Centro de Custo:");
@@ -135,7 +135,7 @@ public class Principal
 			i = 0;
 			for(CentroCusto c : centroCustos)
 			{
-				System.out.println(i + " : "  + c.toString());
+				System.out.println("\n" + i + " : "  + c.toString());
 				i++;
 			}
 			System.out.println("Selecione o Centro de Custo:");
@@ -226,7 +226,7 @@ public class Principal
 			i = 0;
 			for(CentroCusto c : centroCustos)
 			{
-				System.out.println(i + " : "  + c.toString());
+				System.out.println("\n" + i + " : "  + c.toString());
 				i++;
 			}
 			System.out.println("Selecione o Centro de Custo:");

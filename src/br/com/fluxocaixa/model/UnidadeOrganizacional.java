@@ -57,4 +57,13 @@ public class UnidadeOrganizacional extends CentroCusto {
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
+	
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + " Nome: " + getNome() + " Tipo de Unidade: " + getTipoUnidade() +
+				"\nNúmero Externo: " + getNumeroExterno();
+	}
+	
+	
 }
