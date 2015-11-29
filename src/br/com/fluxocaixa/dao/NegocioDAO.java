@@ -16,6 +16,7 @@ import br.com.fluxocaixa.model.CategoriaDebito;
 import br.com.fluxocaixa.model.CentroCusto;
 import br.com.fluxocaixa.model.Despesa;
 import br.com.fluxocaixa.model.FluxoCaixa;
+import br.com.fluxocaixa.model.Funcionario;
 import br.com.fluxocaixa.model.Realizado;
 import br.com.fluxocaixa.model.Receita;
 import br.com.fluxocaixa.model.Status;
@@ -185,6 +186,10 @@ public class NegocioDAO {
 	
 	public List<Receita> listarReceitas(){
 		return session.createCriteria(Receita.class).list();
+	}
+	
+	public List<Funcionario> listarFuncionarios(){
+		return session.createCriteria(Funcionario.class).list();
 	}
 	
 	public Object getById(Class Object, Integer id){

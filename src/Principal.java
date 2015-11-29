@@ -455,6 +455,19 @@ public class Principal
 			unidadeOrganizacional.setUnidadePai(null);
 		}
 		
+		NegocioDAO negocioDAO = new NegocioDAO();
+		List<Funcionario> lsFunc = negocioDAO.listarFuncionarios();
+		int i = 0;
+		for(Funcionario f: lsFunc)
+		{
+			System.out.println(i + " : " + f.getNome());
+			i++;
+		}
+		System.out.println("Selecione o Funcionário responsável pela Unidade:");
+		String s = scanner.nextLine();
+		i = Integer.parseInt(s);
+		Funcionario funcionario = lsFunc.get(i);
+		unidadeOrganizacional.setFuncionario(funcionario);
 		
 		NegocioDAO dao = new NegocioDAO();	
 		dao.salvarGenerico(unidadeOrganizacional);
