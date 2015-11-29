@@ -188,7 +188,12 @@ public class Principal
 			estado = new Atrasado();
 		
 		estado.setMovimentacao(receita);
-		
+		/////////////////////////////////////////////////////////////////////////////
+		System.out.println("Insira a data dessa movimentação:");
+		String dataDeVencimentoString = scanner.nextLine();
+		Date dataDeVencimentoDate = dateFormat.parse(dataDeVencimentoString);
+		estado.setData(dataDeVencimentoDate);		
+		/////////////////////////////////////////////////////////////////////////////
 		
 		negocio.inserirReceitas(receita, estado);
 	}
